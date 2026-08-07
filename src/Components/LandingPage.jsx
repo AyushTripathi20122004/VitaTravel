@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from './NavSection/Navbar'
 import Intro from './IntroSection/Intro'
 import Retreat from './RetreatSection/Retreat'
 import Lenis from 'lenis'
@@ -9,7 +8,7 @@ import CombineRetreat from './CombineRetreat/CombineRetreat'
 import Country from './CountrySection/Country'
 import VitaWork from './VitaWorkSection/VitaWork'
 import PracCoach from './PractitionersCoachesSection/PracCoach'
-import Footer from './FooterSection/Footer'
+
 
 
 const LandingPage = () => {
@@ -27,7 +26,6 @@ requestAnimationFrame(raf);
 
   return (
     <div className=' flex flex-col  lg:w-full overflow-hidden w-screen'>
-      <Navbar />
       <Intro />
       <Retreat />
       <AboutUs />
@@ -36,7 +34,6 @@ requestAnimationFrame(raf);
       <Country />
       <VitaWork />
       <PracCoach />
-      <Footer />
     </div>
   )
 }

@@ -1,8 +1,41 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import gsap from 'gsap'
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+    const tl = useRef();
+    const [Menu, SetMenu] = useState(0)
+    const menuBar1 = useRef(null);
+    const menuBar2 = useRef(null);
+    useEffect(() => {
+        tl.current = gsap.timeline()
+        tl.current
+            .to(menuBar2.current, {
+                width: '100%',
+                rotateZ: '-45deg',
+                y: -6,
+                x: 1
+            }, 'start')
+            .to(menuBar1.current, {
+                width: '100%',
+                rotateZ: '45deg',
+                y: 5,
+                x: 2
+            }, 'start')
+    }, [])
+    
+    useEffect(() => {
+        if (Menu==1) {
+            tl.current.play();
+        } else {
+            tl.current.reverse();
+        }
+    }, [Menu]);
+
+
+
     return (
-        <div className=' Navbar flex fixed z-999 backdrop-blur-sm lg:w-full w-screen top-0'>
+        <div className=' Navbar flex fixed z-999 backdrop-blur-sm lg:w-full w-screen  justify-between top-0'>
             <div className='order-1 group border-[0.1px]  border-l-0 border-r-0 p-3 border-white/20 flex items-center px-4 gap-2 '>
                 <svg class="header-logo__icon text-white group-hover:text-orange-500  transition-colors duration-300" width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M20 17.205L13.6095 13.6996C12.4133 12.9782 11.6823 11.6852 11.6823 10.2906L11.6823 9.70778C11.6823 8.31409 12.4124 7.02172 13.6074 6.30002C15.3397 5.25382 20 2.82159 20 2.82159L20 7.68382L16.3212 9.34147C16.0543 9.46172 15.8827 9.72688 15.8827 10.0191C15.8828 10.3084 16.051 10.5714 16.314 10.6933L20 12.4016L20 17.205Z" fill="currentColor"></path>
@@ -23,6 +56,25 @@ const Navbar = () => {
 
             <div className='order-3 p-3 lg:flex border-[0.1px] border-l-0 font-semibold border-r-0 border-white/20 hidden items-center justify-center  text-xs'>
                 <button className='rounded  px-5 py-2 text-white text-nowrap hover:text-orange-500'>Explore</button>
+            </div>
+
+
+            {/* menu for  small devices */}
+            <div onClick={() => {
+                if (Menu == 0) {
+                    SetMenu(1)
+                }
+                else {
+                    SetMenu(0)                    
+                }
+                console.log(Menu)
+            }}
+                className='order-3  p-3 lg:hidden flex border-[0.1px] border-l-0 font-semibold border-r-0 border-white/20  items-center justify-center  text-xs'>
+
+                <button className='flex flex-col items-end justify-center w-10 gap-2'>
+                    <div ref={menuBar1} className='h-0 menuBar1 w-full border-[1.5px] bg-white border-white'></div>
+                    <div ref={menuBar2} className='h-0 menuBar2 w-1/2  border-[1.5px] bg-white border-white'></div>
+                </button>
             </div>
         </div>
     )

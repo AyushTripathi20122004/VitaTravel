@@ -21,7 +21,7 @@ const RetreatCards = () => {
     return (
         <div className='flex lg:w-auto w-screen   overflow-x-auto'>
             {CardData.map((card, index) => (
-                <div key={index} className={ `  lg:mb-0 mb-5 lg:w-auto w-[100vh] p-8 border-[0.1px] border-white/10 ${index==CardData.length-1 ? 'border-r-0':''} ${index==1 ? 'border-r-0 border-l-0':''} ${index==0 ? 'border-l-0':''}`}>
+                <div key={index} className={ ` RetreatCards  lg:mb-0 mb-5 lg:w-auto w-[100vh] p-8 border-[0.1px] border-white/10 ${index==CardData.length-1 ? 'border-r-0':''} ${index==1 ? 'border-r-0 border-l-0':''} ${index==0 ? 'border-l-0':''}`}>
                     <div className={`flex justify-between font-semibold text-sm text-white py-2 `}>
                         <h3>{card.heading}</h3>
                         <p className='text-white/50'>{card.Branches}</p>

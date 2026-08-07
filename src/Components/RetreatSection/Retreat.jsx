@@ -1,12 +1,44 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import RetreatCards from './RetreatCards'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 const Retreat = () => {
+    const RetreatPara=`We've vetted retreats in more than 100 countries See for yourself`;
+
+    const RetreatTl=gsap.timeline({
+        scrollTrigger:{
+            trigger:'.Retreat-Section',
+            markers:true,
+        }
+    })
+    useEffect(()=>{
+        RetreatTl
+        .from('.Retreat-logo',{
+            y:-20,
+            filter:'blur(10px)',
+            opacity:0
+        },'start')
+        .from('.Retreat-para-char',{
+            opacity:0,
+            stagger:0.025,
+            ease:'power2.in'
+        },'start')
+        .from('.RetreatCards',{
+            x:'-50%',
+            opacity:0,
+            stagger:0.5,
+            ease:'power1.out'
+        },'start')
+    })
+
+    
     return (
-        <div  className='bg-[#091B20]'>
+        <div  className='bg-[#091B20] Retreat-Section'>
             <div className="flex lg:flex-row md:flex-row flex-col z-10 py-20 lg:gap-40 gap-10 px-5  w-full ">
                 {/* logo of retreat */}
-                <div className=' items-center h-fit border-white/40 flex justify-start  gap-2 hover:text-orange-500 '>
+                <div className=' Retreat-logo items-center h-fit border-white/40 flex justify-start  gap-2 hover:text-orange-500 '>
                     <svg class="Retreat-logo__icon" width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M20 17.205L13.6095 13.6996C12.4133 12.9782 11.6823 11.6852 11.6823 10.2906L11.6823 9.70778C11.6823 8.31409 12.4124 7.02172 13.6074 6.30002C15.3397 5.25382 20 2.82159 20 2.82159L20 7.68382L16.3212 9.34147C16.0543 9.46172 15.8827 9.72688 15.8827 10.0191C15.8828 10.3084 16.051 10.5714 16.314 10.6933L20 12.4016L20 17.205Z" fill="white"></path>
                         <path d="M6.2872e-07 17.205L6.39049 13.6996C7.5867 12.9782 8.31769 11.6852 8.31769 10.2906L8.31769 9.70778C8.31769 8.31409 7.5876 7.02172 6.3926 6.30002C4.66027 5.25382 0 2.82159 0 2.82159L2.12535e-07 7.68382L3.67879 9.34147C3.94569 9.46172 4.11726 9.72688 4.11726 10.0191C4.11724 10.3084 3.94899 10.5714 3.68602 10.6933L4.18757e-07 12.4016L6.2872e-07 17.205Z" fill="white"></path>
@@ -17,9 +49,13 @@ const Retreat = () => {
                 </div>
                 <div className="paragraph-field ">
                     <p className='text-white lg:text-5xl  text-4xl font-semibold lg:w-xl'>
-                        We've vetted retreats in
-                        more than 100 countries
-                        See for yourself
+                        {
+                            [...RetreatPara].map((char,idx)=>{
+                                return(
+                                    <span key={idx} className='inline-block Retreat-para-char'>{char == ' ' ? '\u00A0' : char}</span>
+                                )
+                            })
+                        }
                     </p>
                 </div>
             </div>

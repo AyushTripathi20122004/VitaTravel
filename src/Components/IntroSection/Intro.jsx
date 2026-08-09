@@ -33,7 +33,7 @@ const Intro = () => {
 
       {/* Content Above Image */}
       <div className="absolute lg:top-[60%] Intro-Paragraph top-[55%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30  flex flex-col justify-between items-center">
-        <div className="text-white lg:w-sm w-screen    text-center tracking-wider text-xl leading-tight  font-bold">
+        <div className="text-white lg:w-sm  md:w-sm w-[80vw]    text-center tracking-wider text-xl leading-tight  font-bold">
           With purpose. Book retreats, active 
           tours, and boutique stays  in one place.
         </div>

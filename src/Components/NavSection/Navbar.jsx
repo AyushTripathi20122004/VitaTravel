@@ -5,35 +5,34 @@ import { Plus } from 'lucide-react';
 
 const Navbar = () => {
     // animation for menu
-    const tl = useRef();
     const [OpenMenu, SetOpenMenu] = useState('hidden')
     const [Menu, SetMenu] = useState(0)
-    const menuBar1 = useRef(null);
-    const menuBar2 = useRef(null);
-    const MenuPage = useRef(null);
+    const tl = useRef(null);
+
+  
     useEffect(() => {
-        tl.current = gsap.timeline({ paused: true ,duration:0.25})
+        tl.current = gsap.timeline({ paused: true, duration: 0.25 });
         tl.current
-            .to(menuBar2.current, {
+            .to('.menuBar2', {
                 width: '100%',
                 rotateZ: '-45deg',
                 y: -6,
                 x: 1,
                 duration: 0.25
             }, 'start')
-            .to(menuBar1.current, {
+            .to('.menuBar1', {
                 width: '100%',
                 rotateZ: '45deg',
                 y: 5,
                 x: 2,
                 duration: 0.25
             }, 'start')
-            .to('.Navbar',{
-                backgroundColor:'#091B20',
-                duration:0.1,
-            },'start')
+            .to('.Navbar', {
+                backgroundColor: '#091B20',
+                duration: 0.1,
+            }, 'start')
             // Menu animation
-            .fromTo(MenuPage.current,
+            .fromTo('.MenuPage',
                 {
                     y: '-100%',
                     opacity: 0,
@@ -44,7 +43,7 @@ const Navbar = () => {
                     opacity: 1,
                     filter: 'blur(0px)',
                     duration: 0.4,
-                    ease: 'power2.out'
+                    ease: 'power1.out'
                 },
                 'start'
             )
@@ -62,17 +61,17 @@ const Navbar = () => {
     }, [Menu]);
 
     // Animation for Navbar
-    
-    const NavTl=gsap.timeline()
-    useEffect(()=>{
+
+    const NavTl = gsap.timeline()
+    useEffect(() => {
         NavTl
-        .from('.Logo, .NavLink a, .Btn1, .Btn2',{
-            y:-20,
-            stagger:0.2,
-            opacity:0,
-            filter:'blur(10px)'
-        })
-    },[])
+            .from('.Logo, .NavLink a, .Btn1, .Btn2', {
+                y: -20,
+                stagger: 0.2,
+                opacity: 0,
+                filter: 'blur(10px)'
+            })
+    }, [])
 
 
 
@@ -103,35 +102,35 @@ const Navbar = () => {
 
             {/* menu for  small devices */}
             <div onClick={() => {
-                 SetMenu(prev => prev === 0 ? 1 : 0)
+                SetMenu(prev => prev === 0 ? 1 : 0)
             }}
                 className='order-3 btn-2  p-3 lg:hidden md:hidden flex border-[0.1px] border-l-0 font-semibold border-r-0 border-white/20  items-center justify-center  text-xs'>
 
-                <button className='flex flex-col items-end justify-center w-8 gap-2'>
-                    <div ref={menuBar1} className='h-0 menuBar1 w-full border-[1.5px] bg-white border-white'></div>
-                    <div ref={menuBar2} className='h-0 menuBar2 w-1/2  border-[1.5px] bg-white border-white'></div>
+                <button className='flex flex-col items-end justify-center w-8  gap-2'>
+                    <div className='h-0 menuBar1 w-full border-[1.5px] bg-white border-white'></div>
+                    <div className='h-0 menuBar2 w-1/2  border-[1.5px] bg-white border-white'></div>
                 </button>
             </div>
             {/* menu */}
-            <div ref={MenuPage} className={`h-[100vh] py-20 z-1 px-5 lg:hidden md:hidden ${OpenMenu} justify-between flex-col  absolute top-13 bg-[#091B20] w-screen overflow-hidden`}>
+            <div className={`h-[100vh] MenuPage py-20  z-1 px-5 lg:hidden md:hidden ${OpenMenu} justify-between flex-col  absolute top-13 bg-[#091B20] w-screen overflow-hidden`}>
                 <div className='flex flex-col font-medium text-white gap-5'>
-                    <div className='flex items-center text-7xl'>
+                    <div className='flex items-center text-5xl'>
                         <Plus size={60} />
                         <span>Retreats</span>
                     </div>
-                    <div className='flex items-center text-7xl'>
+                    <div className='flex items-center text-5xl'>
                         <Plus size={60} />
                         <span>Coaches</span>
                     </div>
-                    <div className='flex items-center text-7xl'>
+                    <div className='flex items-center text-5xl'>
                         <Plus size={60} />
                         <span>Contacts</span>
                     </div>
                 </div>
-                <div className='w-full'>
-                    <button className='flex w-full z-1 justify-center items-center gap-3 rounded-full hover:bg-[#fb9826] hover:text-white transition-all duration-300 bg-white px-10 mt-8 py-6 text-sm font-semibold text-black  shadow-lg  '>
+                <div className='w-full mb-10'>
+                    <button className='flex w-full z-1 justify-center items-center gap-3 rounded-full hover:bg-[#fb9826] hover:text-white transition-all duration-300 bg-white px-10 mt-8 py-6 text-lg font-semibold text-black  shadow-lg  '>
                         <span>Explore Retreats</span>
-                        <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="10" height="10" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M8 0C8 0 7.32057 2.41553 7.32057 4C7.32057 5.58447 8 8 8 8C8 8 5.58447 7.32057 4 7.32057C2.41553 7.32057 0 8 0 8C0 8 0.679427 5.58447 0.679427 4C0.679427 2.41553 0 0 0 0C0 0 2.41553 0.679426 4 0.679426C5.58447 0.679426 8 0 8 0Z" fill="CurrentColor"></path>
                         </svg>
                     </button>

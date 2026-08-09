@@ -10,7 +10,7 @@ const Retreat = () => {
     const RetreatTl=gsap.timeline({
         scrollTrigger:{
             trigger:'.Retreat-Section',
-            markers:true,
+            markers:false,
         }
     })
     useEffect(()=>{
@@ -30,7 +30,7 @@ const Retreat = () => {
             opacity:0,
             stagger:0.5,
             ease:'power1.out'
-        },'start')
+        },'<')
     })
 
     
@@ -48,7 +48,7 @@ const Retreat = () => {
                     <h1 className='text-nowrap text-white text-xs font-semibold'>Retreats</h1>
                 </div>
                 <div className="paragraph-field ">
-                    <p className='text-white lg:text-5xl  text-4xl font-semibold lg:w-xl'>
+                    <p className='text-white lg:text-5xl text-4xl font-semibold lg:w-xl w-full'>
                         {
                             [...RetreatPara].map((char,idx)=>{
                                 return(

@@ -69,7 +69,7 @@ const CoachesCard = () => {
                 return(
                     <div className={`p-7 group transition-all duration-300 border-[0.1px] ${index==0?'border-l-0 border-b-0 border-r-0':''} ${index==2?'border-l-0 border-r-0':''} ${index==1?'border-b-0 ':''} relative border-white/20`}>
                         {/* front card */}
-                        <div className='relative group-hover:opacity-0 transition-all duration-300  z-1'>
+                        <div className='relative lg:group-hover:opacity-0 group-active:opacity-0 transition-all duration-300  z-1'>
                             <div><img src={Card.CoachImageLink} alt="" srcset="" /></div>
                             <div className='absolute top-0 inset-0 bg-gradient-to-b from-transparent to-black/40 '></div>
                             <div className='absolute bottom-0 text-white leading-[0.8] px-2 py-4'>
@@ -78,7 +78,7 @@ const CoachesCard = () => {
                             </div>
                         </div>
                         {/* coach information card behind */}
-                        <div className='absolute text-white bg-[#0A1E24]  flex-col gap-3  group-hover:flex transition-all duration-300 p-7 hidden top-0 z-[0] inset-0'>
+                        <div className='absolute text-white bg-[#0A1E24]  flex-col gap-3 group-active:flex lg:group-hover:flex transition-all duration-300 p-7 hidden top-0 z-[0] inset-0 justify-between'>
                             <span className='flex items-center gap-1 '>{Card.CoachInfo[0].Location} <MapPin className='text-white/40' size={10} /></span>
                             <div className='leading-[0.8]'>
                                 <h1 className='text-sm'>{Card.CoachName}</h1>

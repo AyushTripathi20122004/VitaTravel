@@ -6,7 +6,7 @@ const PracCoach = () => {
     return (
         <div className='flex lg:flex-row flex-col lg:w-auto w-screen   bg-[#091B20]'>
             <CoachesCard />
-            <div className='grid  lg:grid-rows-2 justify-between border-[0.1px] border-white/20 border-l-0 border-r-0   '>
+            <div className='grid lg:order-2 md:order-2 order-1 lg:grid-rows-2 justify-between border-[0.1px] border-white/20 border-l-0 border-r-0   '>
                 <div className=" z-10 py-7 flex flex-col  lg:h-1/2 h-fit gap-4 px-5  w-full ">
                     {/* logo*/}
                     <div className=' items-center h-fit border-white/40 flex justify-start  gap-2 hover:text-orange-500 '>
@@ -41,7 +41,7 @@ const PracCoach = () => {
                     <div className='flex flex-col  h-full  w-1/2 justify-between'>
                         <PlusIcon />
                         <div>
-                            <p className='font-sm font-medium'>At Vita Travel we've brought <br />
+                            <p className='text-xl font-medium'>At Vita Travel we've brought <br />
                                 together a global network of <br />
                                 200+ certified coaches,<br />
                                 practitioners, and wellness<br />

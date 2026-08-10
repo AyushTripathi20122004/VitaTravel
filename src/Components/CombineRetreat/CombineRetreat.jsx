@@ -3,7 +3,7 @@ import { Plus, PlusIcon } from 'lucide-react'
 
 const CombineRetreat = () => {
     return (
-        <div className='flex relative lg:h-full h-screen w-full flex-col justify-between'>
+        <div className='flex relative  lg:h-full h-screen w-full flex-col justify-between'>
             {/* text */}
             <div className='absolute    top-0 h-full flex justify-between flex-col'>
                 <div className='py-16 text-white px-5'>
@@ -28,7 +28,7 @@ const CombineRetreat = () => {
                             bespoke itineraries.
                         </p>
                     </div>
-                    <div className='grid lg:grid-cols-4 grid-cols-2 flex-2 '>
+                    <div className='grid lg:grid-cols-4  grid-cols-2 flex-2 '>
 
                         <div className='flex-1 p-6 flex flex-col justify-between lg:h-60 h-52 border border-l-0 text-white border-white/20 '>
                             <div className=''>

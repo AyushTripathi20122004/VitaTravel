@@ -51,12 +51,12 @@ const Navbar = () => {
 
     useEffect(() => {
         if (Menu == 1) {
-            tl.current.play();
             SetOpenMenu('flex')
+            tl.current.play();
+            
         } else {
             tl.current.reverse();
             SetOpenMenu('hidden')
-
         }
     }, [Menu]);
 
@@ -77,7 +77,7 @@ const Navbar = () => {
 
     return (
         <div className={`Navbar flex fixed z-999 backdrop-blur-sm border-b-[0.1px] border-white/20 lg:w-full w-screen  justify-between top-0`}>
-            <div className='order-1 Logo group border-[0.1px]  border-l-0 border-r-0 p-3 border-white/20 flex items-center px-4 gap-2 '>
+            <div className='order-1 Logo group lg:border-[0.1px]  lg:border-l-0 lg:border-r-0 p-3 lg:border-white/20 flex items-center px-4 gap-2 '>
                 <svg class="header-logo-img text-white group-hover:text-orange-500  transition-colors duration-300" width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M20 17.205L13.6095 13.6996C12.4133 12.9782 11.6823 11.6852 11.6823 10.2906L11.6823 9.70778C11.6823 8.31409 12.4124 7.02172 13.6074 6.30002C15.3397 5.25382 20 2.82159 20 2.82159L20 7.68382L16.3212 9.34147C16.0543 9.46172 15.8827 9.72688 15.8827 10.0191C15.8828 10.3084 16.051 10.5714 16.314 10.6933L20 12.4016L20 17.205Z" fill="currentColor"></path>
                     <path d="M6.2872e-07 17.205L6.39049 13.6996C7.5867 12.9782 8.31769 11.6852 8.31769 10.2906L8.31769 9.70778C8.31769 8.31409 7.5876 7.02172 6.3926 6.30002C4.66027 5.25382 0 2.82159 0 2.82159L2.12535e-07 7.68382L3.67879 9.34147C3.94569 9.46172 4.11726 9.72688 4.11726 10.0191C4.11724 10.3084 3.94899 10.5714 3.68602 10.6933L4.18757e-07 12.4016L6.2872e-07 17.205Z" fill="currentColor"></path>
@@ -104,7 +104,7 @@ const Navbar = () => {
             <div onClick={() => {
                 SetMenu(prev => prev === 0 ? 1 : 0)
             }}
-                className='order-3 btn-2  p-3 lg:hidden md:hidden flex border-[0.1px] border-l-0 font-semibold border-r-0 border-white/20  items-center justify-center  text-xs'>
+                className='order-3 Btn2  p-3 lg:hidden md:hidden flex border-l-[0.1px] font-semibold border-r-0 border-white/20  items-center justify-center  text-xs'>
 
                 <button className='flex flex-col items-end justify-center w-8  gap-2'>
                     <div className='h-0 menuBar1 w-full border-[1.5px] bg-white border-white'></div>

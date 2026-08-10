@@ -72,11 +72,11 @@ const RetreatsCards = () => {
         }
     ];
     return (
-        <div className='grid lg:grid-cols-2 items-center mt-14 justify-center '>
+        <div className='grid lg:grid-cols-2 md:grid-cols-2 items-center mt-14 justify-center '>
             {
                 retreatsData.map((card, index) => {
                     return (
-                        <div key={index} className={`justify-center p-8 h-full w-full border-[0.1px] flex lg:flex-row flex-col ${index % 2 === 0 ? 'border-l-0 border-white/20 border-r-0' : ''} ${index % 2 != 0 ? 'border-r-0 border-white/20 b' : ''} border-white/20`}>
+                        <div key={index} className={`justify-center p-8 h-full w-full border-[0.01px]  flex lg:flex-row flex-col ${index % 2 === 0 ? 'lg:border-l-0 md:border-l-0 border-white/20 lg:border-r-0 md:border-r-0' : 'lg:border-r-0 md:border-r-0 border-white/20'}`}>
                             <div className=' lg:w-1/2 lg:order-0 order-3  flex flex-col justify-between gap-10  text-white'>
                                 {/* header */}
                                 <div>
@@ -108,7 +108,7 @@ const RetreatsCards = () => {
 
                                     {/* button */}
                                     <div className='mt-2'>
-                                        <button className=' flex items-center justify-between lg:text-xs bg-[#0d2e37] border-white/40 lg:py-2 py-3 lg:hover:bg-[#FB9826] active:bg-[#fb9826] transition-all duration-300 px-5 lg:rounded-2xl rounded-3xl  w-full'>
+                                        <button className=' flex items-center justify-between lg:text-xs bg-[#0d2e37] border-white/40 lg:py-2 py-3 lg:hover:bg-[#FB9826] active:bg-[#fb9826] transition-all duration-300 px-5 font-medium lg:rounded-2xl rounded-3xl  w-full'>
                                             Explore Retreat
                                             <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M8 0C8 0 7.32057 2.41553 7.32057 4C7.32057 5.58447 8 8 8 8C8 8 5.58447 7.32057 4 7.32057C2.41553 7.32057 0 8 0 8C0 8 0.679427 5.58447 0.679427 4C0.679427 2.41553 0 0 0 0C0 0 2.41553 0.679426 4 0.679426C5.58447 0.679426 8 0 8 0Z" fill="white"></path>

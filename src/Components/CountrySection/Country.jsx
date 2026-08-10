@@ -1,10 +1,28 @@
 import React from 'react'
 
 const Country = () => {
+
+    const CountryCard=[
+        {
+            CountryName:'Europe',
+            Text:'/ 289+ Retreats',
+            imgLink:'https://cdn.prod.website-files.com/696eeb61714a6c90a5f18c9e/698b68bbc6de4b51a55a64b3_destination-1.webp'
+        },
+        {
+            CountryName:'Asia',
+            Text:'/ 90+ Retreats',
+            imgLink:'https://cdn.prod.website-files.com/696eeb61714a6c90a5f18c9e/698b68bb48fceacc9f67c522_destination-2.webp'
+        },
+        {
+            CountryName:'USA',
+            Text:'/ 180+ Retreats',
+            imgLink:'https://cdn.prod.website-files.com/696eeb61714a6c90a5f18c9e/698b68bb7277bdbc67c88cd3_destination-3.webp'
+        }
+    ]
     return (
-        <div className='relative'>
-            <div className='absolute h-full top-0 w-full'>
-                <div className="flex  z-10 py-16 gap-40 px-5  w-full ">
+        <div className='lg:relative md:relative h-full w-full bg-[#091B20]'>
+            <div className='lg:absolute md:absolute  lg:h-full md:h-full lg:top-0 md:top-0 w-full'>
+                <div className="flex lg:flex-row md:flex-row flex-col  z-10 py-16 lg:gap-40 gap-10 md:gap-40 px-5  w-full ">
                     {/* logo of retreat */}
                     <div className=' items-center h-fit border-white/40 flex justify-start px-4 gap-2 hover:text-orange-500 '>
                         <svg class="Retreat-logo__icon " width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,16 +35,16 @@ const Country = () => {
                     </div>
                     <div className="paragraph-field ">
                         <h1 className='text-5xl mb-10 text-white font-semibold'>Explore by Destination</h1>
-                        <p className='text-white leading-tight  text-lg font-medium w-2xl'>
-                            Discover your next adventure! <br />
-                            Choose from stunning destinations across Europe with 289 <br />
-                            options, vibrant Asia with 90 experiences, and the diverse USA <br />
+                        <p className='text-white leading-tight  text-lg font-medium lg:w-2xl md:w-2xl'>
+                            Discover your next adventure! 
+                            Choose from stunning destinations across Europe with 289 
+                            options, vibrant Asia with 90 experiences, and the diverse USA 
                             featuring 180 unique locations.
                         </p>
                     </div>
                 </div>
                 {/* blinking locators */}
-                <div className='relative bottom-0 h-1/2 w-full '>
+                <div className='relative bottom-0 h-1/2  lg:block md:block hidden w-full '>
                     <div className='h-2 w-2 absolute top-38 left-15  rounded-full bg-amber-500 shadow-[0_0_10px_#fb9826,0_0_20px_#fb9826] animate-pulse'>    
                     </div>
 
@@ -67,8 +85,23 @@ const Country = () => {
 
                 </div>
             </div>
-            <div>
+            {/* this section visible in desktop and tablets */}
+            <div className='lg:block md:block hidden'>
                 <img src="https://cdn.prod.website-files.com/696eeb61714a6c90a5f18c9e/697b4b8b3132f745287378ec_bg-illustration.png" alt="" srcset="" />
+            </div>
+
+            <div className='flex lg:hidden  md:hidden flex-col  w-full '>
+                {
+                    CountryCard.map((elem,idx)=>{
+                        return(
+                        <div key={idx} className='h-full px-5 py-10 border-[0.1px] border-l-0 border-r-0 border-white/10  text-white w-full'>
+                            <h1 className='text-xl'>{elem.CountryName}</h1>
+                            <span className='text-white/40'>{elem.Text}</span>
+                            <div className='w-full mt-5'><img src={elem.imgLink} alt="" srcset="" className='h-full w-full object-cover' /></div>
+                        </div>
+                        )
+                    })
+                }
             </div>
         </div>
     )

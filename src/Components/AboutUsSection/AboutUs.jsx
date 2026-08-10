@@ -71,7 +71,7 @@ const AboutUs = () => {
                     <h1 className='text-nowrap text-white text-xs font-semibold'>About Us</h1>
                 </div>
                 <div className="AboutUs-paragraph-field ">
-                    <p className='text-white lg:text-5xl text-4xl w-full  font-semibold lg:w-[64%]'>
+                    <p className='text-white lg:text-5xl text-5xl tracking-wide w-full font-semibold  md:font-semibold lg:w-[67%]'>
                         {[...AboutPara].map((elem, idx) => {
                             return (
                                 <span className='inline-block About-Char'>{elem == ' ' ? '\u00A0' : elem}</span>

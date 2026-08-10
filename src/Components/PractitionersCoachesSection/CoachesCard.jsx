@@ -63,11 +63,11 @@ const CoachesCard = () => {
 
     ]
   return (
-    <div className='grid lg:grid-cols-2  grid-cols-1 order-2'>
+    <div className='grid lg:grid-cols-2  grid-cols-1 lg:order-1 order-2 md:order-1'>
         {
             CoachCard.map((Card,index)=>{
                 return(
-                    <div className={`p-7 group transition-all duration-300 border-[0.1px] ${index==0?'border-l-0 border-b-0 border-r-0':''} ${index==2?'border-l-0 border-r-0':''} ${index==1?'border-b-0 ':''} relative border-white/20`}>
+                    <div className={`p-7 group transition-all duration-300 border-[0.1px] lg:hover:border-0  md:hover:border-0 active:border-0 relative border-white/20 lg:${index==0 || index==2 ?'border-l-0':''} md: lg:${index==0 || index==2 ?'border-l-0':''}`}>
                         {/* front card */}
                         <div className='relative lg:group-hover:opacity-0 group-active:opacity-0 transition-all duration-300  z-1'>
                             <div><img src={Card.CoachImageLink} alt="" srcset="" /></div>

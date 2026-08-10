@@ -26,7 +26,7 @@ const RetreatCards = () => {
                         <h3>{card.heading}</h3>
                         <p className='text-white/50'>{card.Branches}</p>
                     </div>
-                    <div className='lg:w-auto w-[35vh] overflow-hidden'>
+                    <div className='lg:w-auto w-[80vw] lg:h-auto md:h-[50vh] md:w-[80vw] overflow-hidden'>
                         <img src={card.Imagelink} alt={card.heading} className='h-full w-full object-cover' />
                     </div>
                 </div>

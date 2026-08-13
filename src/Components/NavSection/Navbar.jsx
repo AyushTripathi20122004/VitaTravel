@@ -89,7 +89,7 @@ const Navbar = () => {
 
             <div className=' NavLink order-2 p-3 hidden justify-end lg:flex md:flex items-center text-xs font-semibold tracking-tight  w-full border-[0.1px] border-white/20   text-white'>
                 <div className='flex gap-4  px-4 '>
-                    <a href='#home' className='hover:text-orange-500'>Retreats</a>
+                    <a href='FeaturedRetreats' className='hover:text-orange-500'>Retreats</a>
                     <a href='#services' className='hover:text-orange-500'>Coaches</a>
                     <a href='#contact' className='hover:text-orange-500'>Contact</a>
                 </div>

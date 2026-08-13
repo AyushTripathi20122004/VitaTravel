@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import LandingPage from './Components/LandingPage';
 import Navbar from './Components/NavSection/Navbar';
 import Footer from './Components/FooterSection/Footer';
+import Contacts from './Components/Contacts/Contacts';
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/contact" element={<Contacts />} />
       </Routes>
       <Footer />
     </div>

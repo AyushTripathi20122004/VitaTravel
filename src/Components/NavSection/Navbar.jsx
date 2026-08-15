@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Plus } from 'lucide-react';
 
 const Navbar = () => {
@@ -9,7 +9,7 @@ const Navbar = () => {
     const [Menu, SetMenu] = useState(0)
     const tl = useRef(null);
 
-  
+
     useEffect(() => {
         tl.current = gsap.timeline({ paused: true, duration: 0.25 });
         tl.current
@@ -53,7 +53,7 @@ const Navbar = () => {
         if (Menu == 1) {
             SetOpenMenu('flex')
             tl.current.play();
-            
+
         } else {
             tl.current.reverse();
             SetOpenMenu('hidden')
@@ -73,6 +73,17 @@ const Navbar = () => {
             })
     }, [])
 
+    const navigate = useNavigate();
+
+    const GoToFeaturedReteat = () => {
+        navigate("/");
+
+        setTimeout(() => {
+            document.getElementById("FeaturedRetreats")?.scrollIntoView({
+                behavior: "smooth"
+            });
+        }, 100);
+    };
 
 
     return (
@@ -89,14 +100,14 @@ const Navbar = () => {
 
             <div className=' NavLink order-2 p-3 hidden justify-end lg:flex md:flex items-center text-xs font-semibold tracking-tight  w-full border-[0.1px] border-white/20   text-white'>
                 <div className='flex gap-4  px-4 '>
-                    <a href='FeaturedRetreats' className='hover:text-orange-500'>Retreats</a>
-                    <a href='#services' className='hover:text-orange-500'>Coaches</a>
+                    <a onClick={GoToFeaturedReteat} className='hover:text-orange-500'>Retreats</a>
+                    <a href='#coaches' className='hover:text-orange-500'>Coaches</a>
                     <a href='#contact' className='hover:text-orange-500'>Contact</a>
                 </div>
             </div>
 
             <div className='Btn1 order-3 p-3 lg:flex md:flex border-[0.1px] border-l-0 font-semibold border-r-0 border-white/20 hidden items-center justify-center  text-xs'>
-                <button className='rounded  px-5 py-2 text-white text-nowrap hover:text-orange-500'>Explore</button>
+                <button onClick={GoToFeaturedReteat} className='rounded  px-5 py-2 text-white text-nowrap hover:text-orange-500'>Explore</button>
             </div>
 
 
@@ -114,21 +125,45 @@ const Navbar = () => {
             {/* menu */}
             <div className={`h-[100vh] MenuPage py-20  z-1 px-5 lg:hidden md:hidden ${OpenMenu} justify-between flex-col  absolute top-13 bg-[#091B20] w-screen overflow-hidden`}>
                 <div className='flex flex-col font-medium text-white gap-5'>
-                    <div className='flex items-center text-5xl'>
-                        <Plus size={60} />
-                        <span>Retreats</span>
-                    </div>
-                    <div className='flex items-center text-5xl'>
-                        <Plus size={60} />
-                        <span>Coaches</span>
-                    </div>
-                    <div className='flex items-center text-5xl'>
-                        <Plus size={60} />
-                        <span>Contacts</span>
-                    </div>
+                    <a 
+                        onClick={() => {
+                            GoToFeaturedReteat()
+                            SetMenu(prev => prev === 0 ? 1 : 0)
+                        }}
+                    >
+                        <div className='flex items-center text-5xl'>
+                            <Plus size={60} />
+                            <span >Retreats</span>
+                        </div>
+                    </a>
+                    <a href="#coaches"
+                        onClick={() => {
+                            SetMenu(prev => prev === 0 ? 1 : 0)
+                        }}
+                    >
+                        <div className='flex items-center text-5xl'>
+                            <Plus size={60} />
+                            <span>Coaches</span>
+                        </div>
+                    </a>
+                    <a href="#contact"
+                        onClick={() => {
+                            SetMenu(prev => prev === 0 ? 1 : 0)
+                        }}
+                    >
+                        <div className='flex items-center text-5xl'>
+                            <Plus size={60} />
+                            <span>Contacts</span>
+                        </div>
+                    </a>
                 </div>
                 <div className='w-full mb-10'>
-                    <button className='flex w-full z-1 justify-center items-center gap-3 rounded-full hover:bg-[#fb9826] hover:text-white transition-all duration-300 bg-white px-10 mt-8 py-6 text-lg font-semibold text-black  shadow-lg  '>
+                    <button
+                        onClick={() => {
+                            GoToFeaturedReteat()
+                            SetMenu(prev => prev === 0 ? 1 : 0)
+                        }}
+                        className='flex w-full z-1 justify-center items-center gap-3 rounded-full hover:bg-[#fb9826] hover:text-white transition-all duration-300 bg-white px-10 mt-8 py-6 text-lg font-semibold text-black  shadow-lg  '>
                         <span>Explore Retreats</span>
                         <svg width="10" height="10" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M8 0C8 0 7.32057 2.41553 7.32057 4C7.32057 5.58447 8 8 8 8C8 8 5.58447 7.32057 4 7.32057C2.41553 7.32057 0 8 0 8C0 8 0.679427 5.58447 0.679427 4C0.679427 2.41553 0 0 0 0C0 0 2.41553 0.679426 4 0.679426C5.58447 0.679426 8 0 8 0Z" fill="CurrentColor"></path>

@@ -2,14 +2,14 @@ import React from 'react'
 
 const Contacts = () => {
   return (
-    <div className="contacts-container grid grid-cols-2 pb-5 pt-24 bg-[#091B20]">
+    <div className="contacts-container grid lg:grid-cols-2   pb-5 pt-24 bg-[#091B20]">
       {/* Section 1: Image */}
-      <section className="contacts-image-section px-10 pb-10 border-r  border-b border-white/40">
-        <img src="https://cdn.prod.website-files.com/696eeb61714a6c90a5f18c9e/6989df5258a6f0a8174626f3_illustration-contact.webp" alt="contacts" />
+      <section className="contacts-image-section lg:w-auto md:w-auto w-screen lg:order-1  order-2 lg:px-10 px-5 md:px-10 pb-10 lg:border-r  lg:border-b  border-white/40">
+        <img src="https://cdn.prod.website-files.com/696eeb61714a6c90a5f18c9e/6989df5258a6f0a8174626f3_illustration-contact.webp" className='h-full w-full object-cover' alt="contacts" />
       </section>
 
       {/* Section 2: Form */}
-      <section className="contacts-form-section border-b border-white/40 flex flex-col justify-center text-white px-10">
+      <section className="contacts-form-section lg:border-b  py-5 lg:order-1  order-1 border-white/40 flex flex-col justify-center text-white px-10">
         {/* Form Header Section */}
         <div className="form-header flex flex-col gap-2">
           <div className=' AboutUs-Logo  items-center h-fit border-white/40 flex justify-start  gap-2 hover:text-orange-500 '>
@@ -28,7 +28,7 @@ const Contacts = () => {
         {/* Form Content Section */}
         <form className="contact-form flex flex-col w-full gap-10">
           {/* Name */}
-          <div className="form-row flex mt-10 gap-10   ">
+          <div className="form-row flex lg:flex-row md:flex-row flex-col mt-10 gap-10   ">
             <div className="form-group py-1  border-b w-full border-white/40 flex flex-col ">
               <label htmlFor="name" className='text-xs'>Name</label>
               <input

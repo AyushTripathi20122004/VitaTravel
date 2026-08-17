@@ -1,5 +1,9 @@
 import { Calendar, MapPin, Users } from 'lucide-react';
-import React from 'react'
+import React, { useEffect } from 'react'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 const RetreatsCards = () => {
 
@@ -71,43 +75,85 @@ const RetreatsCards = () => {
             Imagelink: 'https://cdn.prod.website-files.com/696eeb61714a6c90a5f18c9e/697b16276a09f35cfb31e223_6.webp',
         }
     ];
+
+
+    useGSAP(() => {
+        const Cards = gsap.utils.toArray('.fr-card');
+
+        Cards.forEach((Card) => {
+
+            const FRCtl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: Card,
+                    markers: false
+                }
+            });
+
+            FRCtl
+                .from(Card.querySelectorAll(
+                    '.r-heading, .r-pricing, .r-location, .r-date, .r-no-of-Guest, .r-TruestedBy'
+                ), {
+                    y: 20,
+                    filter: 'blur(20px)',
+                    opacity: 0,
+                    stagger: 0.15,
+                    duration: 0.5
+                },'start')
+                .from(Card.querySelector(
+                    '.r-exploreBtn'
+                ), {
+                    filter: 'blur(20px)',
+                    opacity: 0,
+                    scale:0,
+                },'>')
+                .from(Card.querySelector('.r-image'), {
+                    x: -20,
+                    filter: 'blur(20px)',
+                    opacity: 0,
+                    duration: 0.5
+                }, 'start');
+        });
+    }, []);
+
     return (
         <div className='grid lg:grid-cols-2 md:grid-cols-2 items-center mt-14 justify-center '>
             {
                 retreatsData.map((card, index) => {
                     return (
-                        <div key={index} className={`justify-center p-8 h-full w-full border-[0.01px]  flex lg:flex-row flex-col ${index % 2 === 0 ? 'lg:border-l-0 md:border-l-0 border-white/20 lg:border-r-0 md:border-r-0' : 'lg:border-r-0 md:border-r-0 border-white/20'}`}>
+                        <div key={index} className={`justify-center fr-card p-8 h-full w-full border-[0.01px]  flex lg:flex-row flex-col ${index % 2 === 0 ? 'lg:border-l-0 md:border-l-0 border-white/20 lg:border-r-0 md:border-r-0' : 'lg:border-r-0 md:border-r-0 border-white/20'}`}>
                             <div className=' lg:w-1/2 lg:order-0 order-3  flex flex-col justify-between gap-10  text-white'>
                                 {/* header */}
                                 <div>
                                     {/* heading */}
-                                    <div><h1 className='text-xl font-semibold text-wrap leading-[1] mb-2'>{card.heading}</h1></div>
+                                    <div><h1 className='text-xl r-heading font-semibold text-wrap leading-[1] mb-2'>{card.heading}</h1></div>
                                     {/* pricing */}
-                                    <div className=' text-sm font-semibold flex gap-1 items-center'><span className='text-white/40 text-xs font-normal '>from</span>{card.Pricing}</div>
+                                    <div className=' text-sm font-semibold r-pricing flex gap-1 items-center'>
+                                        <span className='text-white/40 text-xs font-normal '>from</span>{card.Pricing}
+                                    </div>
                                 </div>
                                 {/* information */}
                                 <div className='flex flex-col gap-1 '>
                                     {/* location */}
-                                    <div className='flex items-center lg:text-[10px] text-sm justify-between'>
+                                    <div className='flex r-location items-center lg:text-[10px] text-sm justify-between'>
                                         <span>{card.location}</span>
                                         <MapPin size={12} className="text-white/40" />
                                     </div>
                                     {/* date and days */}
-                                    <div className='flex items-center lg:text-[10px] text-sm justify-between'>
+                                    <div className='flex r-date items-center lg:text-[10px] text-sm justify-between'>
                                         <div>{card.date} <span className='text-white/40'>{card.days}</span></div>
                                         <Calendar size={12} className="text-white/40" />
                                     </div>
-                                    <div className='flex items-center lg:text-[10px] text-sm justify-between'>
+                                    <div className='flex r-no-of-Guest items-center lg:text-[10px] text-sm justify-between'>
                                         <span>{card.NoOfGuests}</span>
                                         <Users size={12} className="text-white/40" />
                                     </div>
-                                    <div className='flex items-center lg:text-[10px] text-sm justify-between'>
+                                    <div className='flex items-center r-TruestedBy lg:text-[10px] text-sm justify-between'>
                                         <div>{card.TrustedBy} <span className='text-white/40'>clients worldwide</span></div>
                                         <div><img src="https://cdn.prod.website-files.com/696eeb61714a6c90a5f18c9e/697b13a6c05aa0554867732d_stars.svg" alt="StarsImage" /></div>
                                     </div>
 
                                     {/* button */}
-                                    <div className='mt-2'>
+                                    <div className='mt-2  r-exploreBtn'>
                                         <button className=' flex items-center justify-between lg:text-xs bg-[#0d2e37] border-white/40 lg:py-2 py-3 lg:hover:bg-[#FB9826] active:bg-[#fb9826] transition-all duration-300 px-5 font-medium lg:rounded-2xl rounded-3xl  w-full'>
                                             Explore Retreat
                                             <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -118,8 +164,8 @@ const RetreatsCards = () => {
                                 </div>
 
                             </div>
-                            <div className='h-full lg:order-0 order-2 lg:mb-0 mb-10 lg:w-1/2 lg:px-4'>
-                                <img src={card.Imagelink} alt="" srcset="" />
+                            <div className='h-full overflow-hidden  lg:order-0 order-2 lg:mb-0 mb-10 lg:w-1/2 lg:px-4'>
+                                <img src={card.Imagelink} className='r-image' alt="" srcset="" />
                             </div>
                         </div>
 

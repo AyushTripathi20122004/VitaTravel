@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import gsap from 'gsap'
+import { useGSAP } from '@gsap/react';
+
 
 const Intro = () => {
   const IntroTl=gsap.timeline();
 
-
-  useEffect(()=>{
+  useGSAP(()=>{
     IntroTl.from('.Intro-Heading, .Intro-Paragraph, .Intro-btn ',{
       y:40,
       filter:'blur(10px)',

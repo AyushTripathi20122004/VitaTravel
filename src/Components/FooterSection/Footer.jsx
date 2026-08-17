@@ -10,7 +10,7 @@ const Footer = () => {
             </div>
 
             <div className="footer-content flex lg:flex-row flex-col justify-between w-[85%] items-start text-white lg:px-10 px-5 py-10 lg:gap-0 gap-10">
-                <a href="#">
+                <a href="/#">
                     <div className=' group  flex items-center  gap-2 '>
                     <svg class="Retreat-logo__icon" className='fill-white/40 transition-colors duration-300 group-hover:fill-orange-500' width="15" height="15" viewBox="0 0 20 20" fill='' xmlns="http://www.w3.org/2000/svg">
                         <path d="M20 17.205L13.6095 13.6996C12.4133 12.9782 11.6823 11.6852 11.6823 10.2906L11.6823 9.70778C11.6823 8.31409 12.4124 7.02172 13.6074 6.30002C15.3397 5.25382 20 2.82159 20 2.82159L20 7.68382L16.3212 9.34147C16.0543 9.46172 15.8827 9.72688 15.8827 10.0191C15.8828 10.3084 16.051 10.5714 16.314 10.6933L20 12.4016L20 17.205Z" fill=""></path>

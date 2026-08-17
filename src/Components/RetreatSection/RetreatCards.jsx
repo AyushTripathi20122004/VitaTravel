@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react';
 
 const RetreatCards = () => {
     const CardData = [
@@ -18,11 +20,34 @@ const RetreatCards = () => {
             Imagelink: 'https://cdn.prod.website-files.com/696eeb61714a6c90a5f18c9e/6971da64c60674c148d40058_statistic-3.webp'
         }
     ]
+
+    useGSAP(() => {
+        const RetreatTl2 = gsap.timeline({
+            scrollTrigger: {
+                trigger: '.RetreatCards-wrapper',
+                markers: false,
+            }
+        })
+        RetreatTl2
+            .from('.RetreatCards img', {
+                x: '-50%',
+                opacity: 0,
+                stagger: 0.5,
+                ease: 'power1.out'
+            }, 'start')
+            .from('.RetreatCards-HeroText ', {
+                y: '50%',
+                opacity: 0,
+                stagger: 0.5,
+                ease: 'power1.out'
+            }, 'start')
+    }, [])
+
     return (
-        <div className='flex lg:w-auto w-screen   overflow-x-auto'>
+        <div className='flex lg:w-auto w-screen RetreatCards-wrapper   overflow-x-auto'>
             {CardData.map((card, index) => (
-                <div key={index} className={ ` RetreatCards  lg:mb-0 mb-5 lg:w-auto w-[100vh] p-8 border-[0.1px] border-white/10 ${index==CardData.length-1 ? 'border-r-0':''} ${index==1 ? 'border-r-0 border-l-0':''} ${index==0 ? 'border-l-0':''}`}>
-                    <div className={`flex justify-between font-semibold text-sm text-white py-2 `}>
+                <div key={index} className={` RetreatCards  lg:mb-0 mb-5 lg:w-auto w-[100vh] p-8 border-[0.1px] border-white/10 ${index == CardData.length - 1 ? 'border-r-0' : ''} ${index == 1 ? 'border-r-0 border-l-0' : ''} ${index == 0 ? 'border-l-0' : ''}`}>
+                    <div className={`flex RetreatCards-HeroText  justify-between font-semibold text-sm text-white py-2 `}>
                         <h3>{card.heading}</h3>
                         <p className='text-white/50'>{card.Branches}</p>
                     </div>

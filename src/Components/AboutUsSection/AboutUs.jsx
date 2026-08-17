@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import gsap from 'gsap'
+import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const AboutUs = () => {
 
-    useEffect(() => {
+    useGSAP(() => {
         const AboutUsTl = gsap.timeline({
             scrollTrigger: {
                 trigger: '.AboutUsSection',
-                markers: false,
+                markers: false
             }
         })
         AboutUsTl
@@ -21,42 +22,43 @@ const AboutUs = () => {
             .from('.About-Char', {
                 opacity: 0,
                 stagger: 0.025,
-                ease: 'power1.out'
+                ease: 'power1.in'
             }, 'start')
             .from('.AboutUs-Img', {
                 x: -80,
                 opacity: 0,
-                ease: 'power1.out'
-            },)
+                ease: 'power1.in'
+            }, 'start')
             .from('.AboutUS-para span', {
-                opacity: 0.5,
-                stagger: 0.1,
-                ease: 'power1.out'
-            },)
+                opacity: 0.1,
+                stagger:0.005,
+                ease: 'power1.in'
+            }, 'start')
             .from('.AboutUs-Travel-Country h3,.AboutUs-Travel-Country p', {
-                y: -40,
+                y: 40,
                 opacity: 0,
+                filter:'blur(10px)',
                 stagger: 0.1,
                 duration: 0.35,
-                ease: 'power1.out'
-            },)
+                ease: 'power1.in'
+            }, '>')
             .from('.AboutUs-Attendent h3,.AboutUs-Attendent p', {
-                y: -40,
+                y: 40,
                 opacity: 0,
                 stagger: 0.1,
-                duration: 0.35,
-                ease: 'power1.out'
-            },)
+                ease: 'power1.in'
+            }, '>')
             .from('.AboutUS-hero-Section p,.AboutUS-hero-Section img', {
-                y: -40,
+                y: 40,
                 opacity: 0,
                 stagger: 0.1,
-                duration: 0.35,
-                ease: 'power1.out'
-            },)
+                ease: 'power1.in'
+            }, '>')
     })
 
     let AboutPara = 'Not just trips experiences that nurture body and soul';
+    let AboutUsHeroText=`Vita Travel is a premium wellness travel marketplace that blends the ease of booking with the feel of an editorial magazine. Discover curated programs, match them with  exceptional stays, and book seamlessly. `
+
     return (
         <div className='bg-[#091B20] AboutUsSection py-20 '>
             <div className="flex lg:flex-row flex-col z-10 py-10 lg:gap-40 gap-10 px-5  w-full ">
@@ -94,12 +96,13 @@ const AboutUs = () => {
                     <div className=" flex flex-col">
                         <div className="">
                             <p className="text-white AboutUS-para   lg:text-[16px] text-xl tracking-wider   font-medium lg:w-lg">
-                                <span className='ml-10'>Vita Travel is a premium wellness travel marketplace that </span>
-                                <span className=''>
-                                    blends the ease of booking with the feel of an editorial
-                                    magazine. Discover curated programs, match them with
-                                </span>
-                                <span> exceptional stays, and book seamlessly.</span>
+                                {
+                                    [...AboutUsHeroText].map((char,index)=>{
+                                        return(
+                                            <span>{char==' '?'\u00A0 ':char}</span>
+                                        )
+                                    })
+                                }
                             </p>
                         </div>
 

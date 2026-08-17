@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
+import { useGSAP } from '@gsap/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Plus } from 'lucide-react';
 
@@ -10,7 +11,7 @@ const Navbar = () => {
     const tl = useRef(null);
 
 
-    useEffect(() => {
+    useGSAP(() => {
         tl.current = gsap.timeline({ paused: true, duration: 0.25 });
         tl.current
             .to('.menuBar2', {
@@ -49,7 +50,7 @@ const Navbar = () => {
             )
     }, [])
 
-    useEffect(() => {
+    useGSAP(() => {
         if (Menu == 1) {
             SetOpenMenu('flex')
             tl.current.play();
@@ -63,7 +64,7 @@ const Navbar = () => {
     // Animation for Navbar
 
     const NavTl = gsap.timeline()
-    useEffect(() => {
+    useGSAP(() => {
         NavTl
             .from('.Logo, .NavLink a, .Btn1, .Btn2', {
                 y: -20,

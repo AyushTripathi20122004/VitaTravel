@@ -1,19 +1,23 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import RetreatCards from './RetreatCards'
 import gsap from 'gsap'
+import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
+
 
 const Retreat = () => {
     const RetreatPara = `We've vetted retreats in more than 100 countries See for yourself`;
 
-    const RetreatTl = gsap.timeline({
+    
+
+    useGSAP(() => {
+        const RetreatTl = gsap.timeline({
         scrollTrigger: {
             trigger: '.Retreat-Section',
             markers: false,
         }
     })
-    useEffect(() => {
         RetreatTl
             .from('.Retreat-logo', {
                 y: -20,
@@ -24,18 +28,14 @@ const Retreat = () => {
                 opacity: 0,
                 stagger: 0.025,
                 ease: 'power2.in'
-            }, 'start')
-            .from('.RetreatCards', {
-                x: '-50%',
-                opacity: 0,
-                stagger: 0.5,
-                ease: 'power1.out'
-            }, '<')
+            }, 'start');
+
+        
     })
 
 
     return (
-        <div id='retreat' className='bg-[#091B20] Retreat-Section'>
+        <div id='retreat' className='bg-[#091B20] Retreat-Section '>
             <div className="flex lg:flex-row md:flex-row flex-col z-10 py-20 lg:gap-40 gap-10 px-5  w-full ">
                 {/* logo of retreat */}
                 <div className=' Retreat-logo items-center h-fit border-white/40 flex justify-start  gap-2 hover:text-orange-500 '>

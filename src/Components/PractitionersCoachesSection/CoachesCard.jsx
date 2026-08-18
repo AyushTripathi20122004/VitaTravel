@@ -63,7 +63,7 @@ const CoachesCard = () => {
 
     ]
   return (
-    <div className='grid lg:grid-cols-2  grid-cols-1 lg:order-1 order-2 md:order-1'>
+    <div className='grid lg:grid-cols-2 md:grid-cols-2  grid-cols-1 lg:order-1 order-2 md:order-2'>
         {
             CoachCard.map((Card,index)=>{
                 return(

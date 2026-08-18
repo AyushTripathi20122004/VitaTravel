@@ -6,7 +6,7 @@ const PracCoach = () => {
     return (
         <div className='flex lg:flex-row flex-col lg:w-auto w-screen   bg-[#091B20]'>
             <CoachesCard />
-            <div className='grid lg:order-2 md:order-2 order-1 lg:grid-rows-2 justify-between border-[0.1px] border-white/20 border-l-0 border-r-0   '>
+            <div className='grid lg:order-2 md:order-1 order-1 lg:grid-rows-2 justify-between border-[0.1px] border-white/20 border-l-0 border-r-0   '>
                 <div className=" z-10 py-7 flex flex-col  lg:h-1/2 h-fit gap-4 px-5  w-full ">
                     {/* logo*/}
                     <div className=' items-center h-fit border-white/40 flex justify-start  gap-2 hover:text-orange-500 '>
@@ -26,7 +26,7 @@ const PracCoach = () => {
                     </div>
                 </div>
 
-                <div className='flex lg:flex-row flex-col lg:gap-0 gap-10 lg:items-end px-5 text-white pb-7 '>
+                <div className='flex lg:flex-row md:flex-row flex-col lg:gap-0 gap-10 lg:items-end px-5 text-white pb-7 '>
                     <div className='flex flex-col w-1/2 h-full justify-between'>
                         <PlusIcon />
                         <div>

@@ -20,9 +20,9 @@ const Country = () => {
         }
     ]
     return (
-        <div className='lg:relative md:relative h-full w-full bg-[#091B20]'>
-            <div className='lg:absolute md:absolute  lg:h-full md:h-full lg:top-0 md:top-0 w-full'>
-                <div className="flex lg:flex-row md:flex-row flex-col  z-10 py-16 lg:gap-40 gap-10 md:gap-40 px-5  w-full ">
+        <div className='lg:relative lg:pt-0 md:pt-0 pt-10 md:relative h-full w-full bg-[#091B20]'>
+            <div className='lg:absolute  lg:h-full  lg:top-0  w-full'>
+                <div className="flex lg:flex-row flex-col  z-10 py-16 lg:gap-40 gap-10 md:gap-10 px-5  w-full ">
                     {/* logo of retreat */}
                     <div className=' items-center h-fit border-white/40 flex justify-start px-4 gap-2 hover:text-orange-500 '>
                         <svg class="Retreat-logo__icon" className='fill-white/40' width="15" height="15" viewBox="0 0 20 20" fill='' xmlns="http://www.w3.org/2000/svg">
@@ -34,8 +34,8 @@ const Country = () => {
                         <h1 className='text-nowrap text-white text-xs font-semibold'>Country</h1>
                     </div>
                     <div className="paragraph-field ">
-                        <h1 className='text-5xl mb-10 text-white font-semibold'>Explore by Destination</h1>
-                        <p className='leading-tight text-white/40  text-lg font-medium lg:w-2xl md:w-2xl'>
+                        <h1 className='text-5xl lg:mb-10 md:mb-5 text-white font-semibold'>Explore by Destination</h1>
+                        <p className='leading-tight text-white/40  text-lg font-medium lg:w-2xl md:w-xl'>
                             Discover your next adventure! 
                             Choose from stunning destinations across Europe with 289 
                             options, vibrant Asia with 90 experiences, and the diverse USA 
@@ -44,7 +44,7 @@ const Country = () => {
                     </div>
                 </div>
                 {/* blinking locators */}
-                <div className='relative bottom-0 h-1/2  lg:block md:block hidden w-full '>
+                <div className='relative bottom-0 h-1/2  lg:block hidden w-full '>
                     <div className='h-2 w-2 absolute top-38 left-15  rounded-full bg-amber-500 shadow-[0_0_10px_#fb9826,0_0_20px_#fb9826] animate-pulse'>    
                     </div>
 
@@ -86,11 +86,11 @@ const Country = () => {
                 </div>
             </div>
             {/* this section visible in desktop and tablets */}
-            <div className='lg:block md:block hidden'>
+            <div className='lg:block hidden'>
                 <img src="https://cdn.prod.website-files.com/696eeb61714a6c90a5f18c9e/697b4b8b3132f745287378ec_bg-illustration.png" alt="" srcset="" />
             </div>
 
-            <div className='flex lg:hidden  md:hidden flex-col  w-full '>
+            <div className='flex lg:hidden  flex-col  w-full '>
                 {
                     CountryCard.map((elem,idx)=>{
                         return(
